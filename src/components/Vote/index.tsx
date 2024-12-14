@@ -7,10 +7,10 @@ interface VoteProps {
   viewWinner: boolean;
 }
 
-const Vote: React.FC<VoteProps> = ({ options, onVote ,viewWinner}) => {
+const Vote: React.FC<VoteProps> = ({ options, onVote, viewWinner }) => {
   return (
     <div className="vote-container w-40 h-50">
-      {options.map((option, index) => (
+      {options.map((option) => (
         <div key={option.id} data-testid={`option-${option.id}`} className="card mr-10 ml-10 w-100">
           <section className="layout-row align-items-center justify-content-center mr-10 ml-10 pr-10 pl-10">
             <h3 data-testid={`choice-${option.id}`}>{option.text}</h3>

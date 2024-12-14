@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Vote from '../Vote';
 import Results from '../Results';
-import { pollData, Poll } from '../../types/Poll';
+import { pollData } from '../../types/Poll';
 
 const PollManager: React.FC = () => {
   const [modifiedPollData, setModifiedPollData] = useState(pollData);
@@ -9,23 +9,21 @@ const PollManager: React.FC = () => {
 
   const handleOnVote = (id: number) => {
     setModifiedPollData((prev) => {
-      const updatedOptions = [...prev.options]; // Create a shallow copy of the options array
-      updatedOptions[id-1] = {
-        ...updatedOptions[id-1],
-        votes: updatedOptions[id-1].votes + 1, // Increment the votes for the specific option
+      const updatedOptions = [...prev.options];
+      updatedOptions[id - 1] = {
+        ...updatedOptions[id - 1],
+        votes: updatedOptions[id - 1].votes + 1,
       };
       return {
         ...prev,
-        options: updatedOptions, // Update the options array
+        options: updatedOptions,
       };
     });
   };
 
-
-  const handleSetViewWinner=()=>{
-    setViewWinner(true)
-  }
-
+  const handleSetViewWinner = () => {
+    setViewWinner(true);
+  };
 
   return (
     <div
